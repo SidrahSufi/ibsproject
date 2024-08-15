@@ -165,16 +165,23 @@ class _StrategyPlannerState extends State<StrategyPlanner> {
   }
 
   Widget _buildDroppedItem(String text) {
-    return Container(
-      padding: EdgeInsets.all(8.0),
-      margin: EdgeInsets.only(bottom: 4.0),
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey),
-      ),
-      child: Text(
-        text,
-        style: TextStyle(fontSize: 14.0),
-      ),
-    );
+
+    return ExpansionTile(title: Text(text),
+    children: [
+      Text("child 1 herer")
+    ],);
+
+
+    // return Container(
+    //   padding: EdgeInsets.all(8.0),
+    //   margin: EdgeInsets.only(bottom: 4.0),
+    //   decoration: BoxDecoration(
+    //     border: Border.all(color: Colors.grey),
+    //   ),
+    //   child: Text(
+    //     text,
+    //     style: TextStyle(fontSize: 14.0),
+    //   ),
+    // );
   }
 }
