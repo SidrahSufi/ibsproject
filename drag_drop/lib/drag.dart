@@ -21,6 +21,7 @@ class _StrategyPlannerState extends State<StrategyPlanner> {
   ];
 
   List<String> _droppedItems = [];
+  List<String> _droppedChildItems = [];
 
   @override
   Widget build(BuildContext context) {
@@ -114,17 +115,21 @@ class _StrategyPlannerState extends State<StrategyPlanner> {
               },
               builder: (context, candidateData, rejectedData) {
                 return Container(
-                  height: 200,
+                  height: 500,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.grey),
                   ),
                   child: Column(
                     children: [
-                      Text('Drop items here'),
+                      (_droppedItems.length>0 ?
+                      Text('(${_droppedItems.length}) Drop items here') :
+                      Text('Drop items here')),
+
                       ..._droppedItems.map((item) {
                         return _buildDroppedItem(item);
                       }),
+
                     ],
                   ),
                 );
@@ -168,7 +173,70 @@ class _StrategyPlannerState extends State<StrategyPlanner> {
 
     return ExpansionTile(title: Text(text),
     children: [
-      Text("child 1 herer")
+      Padding(padding: EdgeInsets.all(10)
+      ,child:
+        // Text("child 1 here")
+
+        DragTarget<String>(
+          onWillAccept: (data) => true,
+          onAccept: (data) {
+            setState(() {
+              _droppedChildItems.add(data);
+            });
+          },
+          builder: (context, candidateData, rejectedData) {
+            return Container(
+              height: 200,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.grey),
+              ),
+              child: Column(
+                children: [
+                  Text('Drop items here'),
+                  ..._droppedChildItems.map((item) {
+                    return _buildDroppedChildItem(item);
+                  }),
+                ],
+              ),
+            );
+          },
+        ),
+
+
+
+        )
+      // Text("child 1 here")
+    ],);
+
+
+    // return Container(
+    //   padding: EdgeInsets.all(8.0),
+    //   margin: EdgeInsets.only(bottom: 4.0),
+    //   decoration: BoxDecoration(
+    //     border: Border.all(color: Colors.grey),
+    //   ),
+    //   child: Text(
+    //     text,
+    //     style: TextStyle(fontSize: 14.0),
+    //   ),
+    // );
+  }
+
+  Widget _buildDroppedChildItem(String text) {
+
+    return ExpansionTile(title: Text(text),
+    children: [
+      Padding(padding: EdgeInsets.all(10)
+      ,child:
+        Text("child 1 here")
+
+
+
+
+
+        )
+      // Text("child 1 here")
     ],);
 
 

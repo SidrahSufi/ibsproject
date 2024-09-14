@@ -6,6 +6,9 @@
       <excludeFolder url="file://$MODULE_DIR$/strategy_ibs/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/strategy_ibs/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/strategy_ibs/build" />
+      <excludeFolder url="file://$MODULE_DIR$/drag_drop/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/drag_drop/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/drag_drop/build" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
