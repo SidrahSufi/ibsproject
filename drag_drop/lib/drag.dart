@@ -127,6 +127,7 @@ class _StrategyPlannerState extends State<StrategyPlanner> {
                       Text('Drop items here')),
 
                       ..._droppedItems.map((item) {
+
                         return _buildDroppedItem(item);
                       }),
 
